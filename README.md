@@ -9,6 +9,7 @@
 ## The Problem
 
 Out of the box on Ubuntu, the MacBook Pro A1708:
+- This is technically AI slop but if this could help one person avoid hours of the troubleshooting me and Claude did (LOL), then it's worth it
 - Appears to suspend when closing the lid but stays fully awake (running hot, draining battery)
 - Hard freezes when actually suspending — requires holding power button to reboot
 - WiFi, keyboard and trackpad don't recover after resume
