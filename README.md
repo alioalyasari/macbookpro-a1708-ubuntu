@@ -1,5 +1,3 @@
-# macbookpro-a1708-ubuntu
-MacbookPro A1708 (No Touchbar, No T2) Ubuntu 26.04 issues solved
 # MacBook Pro A1708 (MacBookPro14,1) — Ubuntu 26.04 Complete Setup Guide
 
 > **Hardware:** MacBook Pro 13" 2017 No Touch Bar (A1708 / MacBookPro14,1)
@@ -14,6 +12,7 @@ Out of the box on Ubuntu, the MacBook Pro A1708:
 - Appears to suspend when closing the lid but stays fully awake (running hot, draining battery)
 - Hard freezes when actually suspending — requires holding power button to reboot
 - WiFi, keyboard and trackpad don't recover after resume
+- Audio shows as "Dummy Output" — no sound
 - FaceTime HD webcam not working
 
 ---
@@ -256,6 +255,40 @@ EndSection
 ```
 
 Higher number = slower scroll. Default is ~15. Reboot to apply.
+
+---
+
+## Part 4 — Audio Fix
+
+By default audio may show as "Dummy Output". The `snd_hda_macbookpro` driver by davidjo fixes this.
+
+### Step 1 — Install Prerequisites
+
+```bash
+sudo apt install gcc linux-headers-generic make patch wget
+```
+
+### Step 2 — Clone and Install
+
+```bash
+cd ~
+git clone https://github.com/davidjo/snd_hda_macbookpro.git
+cd snd_hda_macbookpro/
+sudo ./install.cirrus.driver.sh
+```
+
+### Step 3 — Reboot
+
+```bash
+sudo reboot
+```
+
+After rebooting go to **Settings → Sound** and set the output to **Analogue Stereo Output** for speakers, or **Analogue Stereo Duplex** if you want to use the internal microphone as well.
+
+**Notes:**
+- Internal microphone works but recorded volume is very low — use something like PulseEffects to amplify
+- Headphone detection may not work perfectly
+- Audio format is limited to 44.1 kHz
 
 ---
 
