@@ -295,7 +295,6 @@ After rebooting go to **Settings → Sound** and set the output to **Analogue St
 
 ## What Doesn't Work
 
-- **FaceTime HD Camera** — works via community driver but image quality is limited
 - **Hibernate** — not configured (requires swap partition setup)
 - **macOS-style suspend-then-poweroff** — Linux stays in suspend indefinitely
 
